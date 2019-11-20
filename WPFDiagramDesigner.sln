@@ -3,9 +3,67 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part1", "Part1", "{629A9928-77E0-49FE-9924-6FB55A6E8AE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveResize", "Part1\MoveResize\MoveResize.csproj", "{95CDC6DB-FF23-4262-8447-3CFE6B4C7188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveResizeRotate", "Part1\MoveResizeRotate\MoveResizeRotate.csproj", "{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveResizeRotateWithAdorners", "Part1\MoveResizeRotateWithAdorners\MoveResizeRotateWithAdorners.csproj", "{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part2", "Part2", "{04252A95-9E4C-4FF0-BACC-DD4EADF977D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramDesigner", "Part2\DiagramDesigner\DiagramDesigner.csproj", "{4946722F-CFFF-4FC6-B1C1-A6107316A58C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part3", "Part3", "{9EE40516-43D7-4A6C-BBC8-0E97D6188F76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part4", "Part4", "{529CF4FE-CF80-4511-8662-1FF54EFA3D55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramDesigner", "Part3\DiagramDesigner\DiagramDesigner.csproj", "{74872A86-6809-476B-95AB-6F3512317059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramDesigner", "Part4\DiagramDesigner\DiagramDesigner.csproj", "{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95CDC6DB-FF23-4262-8447-3CFE6B4C7188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CDC6DB-FF23-4262-8447-3CFE6B4C7188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CDC6DB-FF23-4262-8447-3CFE6B4C7188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CDC6DB-FF23-4262-8447-3CFE6B4C7188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4946722F-CFFF-4FC6-B1C1-A6107316A58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4946722F-CFFF-4FC6-B1C1-A6107316A58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4946722F-CFFF-4FC6-B1C1-A6107316A58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4946722F-CFFF-4FC6-B1C1-A6107316A58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74872A86-6809-476B-95AB-6F3512317059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74872A86-6809-476B-95AB-6F3512317059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74872A86-6809-476B-95AB-6F3512317059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74872A86-6809-476B-95AB-6F3512317059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95CDC6DB-FF23-4262-8447-3CFE6B4C7188} = {629A9928-77E0-49FE-9924-6FB55A6E8AE9}
+		{EF0B4258-89E8-423F-A38D-C1E8AF9FD5C3} = {629A9928-77E0-49FE-9924-6FB55A6E8AE9}
+		{7B1D1E85-7F7B-47A8-8D5D-47BA75B29A97} = {629A9928-77E0-49FE-9924-6FB55A6E8AE9}
+		{4946722F-CFFF-4FC6-B1C1-A6107316A58C} = {04252A95-9E4C-4FF0-BACC-DD4EADF977D4}
+		{74872A86-6809-476B-95AB-6F3512317059} = {9EE40516-43D7-4A6C-BBC8-0E97D6188F76}
+		{B437DF5F-20E0-4082-A92E-5C1D9C31A8E9} = {529CF4FE-CF80-4511-8662-1FF54EFA3D55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D8B282A-4A8D-496D-8B02-841141B9DC7B}
