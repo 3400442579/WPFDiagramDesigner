@@ -7,6 +7,7 @@ namespace DiagramDesigner
         public Window1()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }

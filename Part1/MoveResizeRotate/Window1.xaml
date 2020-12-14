@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
         Title="Move, resize and rotate"
-        Height="550" Width="750">
+        Height="550" Width="750"
+        xmlns:s="clr-namespace:DiagramDesigner">
   <Window.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
@@ -11,27 +12,100 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Canvas>
-    <ContentControl Width="130"
-                    Height="130"
-                    Canvas.Top="150"
-                    Canvas.Left="470"
-                    Selector.IsSelected="True"
-                    Style="{StaticResource DesignerItemStyle}">
-      <Ellipse Fill="Blue"
-               Stretch="Fill"
-               IsHitTestVisible="False"/>
-    </ContentControl>
-    <ContentControl Width="130"
-                    Height="130"
-                    Canvas.Top="150"
-                    Canvas.Left="150"
-                    Selector.IsSelected="True"
-                    Style="{StaticResource DesignerItemStyle}">
-      <Path Fill="Red"
-            Data="M 0,5 5,0 10,5 5,10 Z"
-            Stretch="Fill"
-            IsHitTestVisible="False"/>
-    </ContentControl>
-  </Canvas>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+   
+      <Canvas>
+        <ContentControl Width="130"
+                        Height="130"
+                        Canvas.Top="150"
+                        Canvas.Left="470"
+                        Selector.IsSelected="True"
+                        Style="{StaticResource DesignerItemStyle}">
+          <Ellipse Fill="Blue"
+                   Stretch="Fill"
+                   IsHitTestVisible="False"/>
+        </ContentControl>
+        <ContentControl Width="130"
+                        Height="130"
+                        Canvas.Top="150"
+                        Canvas.Left="150"
+                        Selector.IsSelected="True"
+                        Style="{StaticResource DesignerItemStyle}">
+          <Path Fill="Red"
+                Data="M 0,5 5,0 10,5 5,10 Z"
+                Stretch="Fill"
+                IsHitTestVisible="False"/>
+        </ContentControl>
+      </Canvas>
+
+
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Itemls}" SelectedItem="{Binding SelectIteml.Value}" SelectionMode="Single" >
+            
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <Canvas Background="AntiqueWhite" x:Name="CanvasPanel" IsItemsHost="True" />
+                </ControlTemplate>
+            </ListBox.Template >
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Canvas.Left" Value="{Binding X,Mode=TwoWay}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding Y,Mode=TwoWay}"/>
+                    <Setter Property="Width" Value="{Binding W,Mode=TwoWay}"/>
+                    <Setter Property="Height" Value="{Binding H,Mode=TwoWay}"/>
+                    <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}"/>
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Grid Background="Red" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Control Name="RotateDecorator" Template="{StaticResource RotateDecoratorTemplate}" Visibility="Collapsed"/>
+                                    <Control x:Name="ResizeDecorator"  Template="{StaticResource ResizeDecoratorTemplate}" Visibility="Collapsed"/>
+                                    <ContentPresenter />
+                                    <s:MoveThumb Template="{StaticResource MoveThumbTemplate}"  Cursor="SizeAll"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="ResizeDecorator" Property="Visibility" Value="Visible"/>
+                                        <Setter TargetName="RotateDecorator" Property="Visibility" Value="Visible"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Text}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="5">
+            <TextBlock Text="文字" Foreground="#919399" Margin="0,0,0,13" />
+            <TextBox BorderBrush="#E7E7E7" x:Name="txt" 
+                             Height="52"
+                             Text="{Binding SelectIteml.Value.Text,UpdateSourceTrigger=PropertyChanged}"/>
+
+
+            <TextBlock Text="Info" Foreground="#919399" Margin="0,0,0,13" />
+            <TextBlock Text="{Binding SelectIteml.Value.X,StringFormat={}x:{0}}" Foreground="#919399" Margin="0,0,0,13" />
+            <TextBlock Text="{Binding SelectIteml.Value.Y,StringFormat={}y:{0}}" Foreground="#919399" Margin="0,0,0,13" />
+            <TextBlock Text="{Binding SelectIteml.Value.W,StringFormat={}w:{0}}" Foreground="#919399" Margin="0,0,0,13" />
+            <TextBlock Text="{Binding SelectIteml.Value.H,StringFormat={}h:{0}}" Foreground="#919399" Margin="0,0,0,13" />
+        </StackPanel>
+    </Grid>
 </Window>

@@ -11,12 +11,24 @@ namespace DiagramDesigner
         public MoveThumb()
         {
             DragDelta += new DragDeltaEventHandler(this.MoveThumb_DragDelta);
+            this.PreviewMouseLeftButtonDown += MoveThumb_PreviewMouseLeftButtonDown;
         }
+
+
+
+
+        private void MoveThumb_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (DataContext is ListBoxItem designerItem && designerItem != null)
+            {
+                designerItem.IsSelected = true;
+            }
+        }
+
 
         private void MoveThumb_DragDelta(object sender, DragDeltaEventArgs e)
         {
             ContentControl designerItem = DataContext as ContentControl;
-
             if (designerItem != null)
             {
                 Point dragDelta = new Point(e.HorizontalChange, e.VerticalChange);
